@@ -9,4 +9,8 @@ class TodosController < ApplicationController
     render json: new_todo
   end
 
+  def show
+    render json: Todo.find(params[:id])
+  end
+
 end
