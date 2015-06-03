@@ -29,6 +29,8 @@ class TodosController < ApplicationController
       render json: { message: 'todo deleted' }
     rescue ActiveRecord::RecordNotFound => error
       render json: { error: error.message }, status: 404
+    rescue StandardError => error
+      render json: { error: error.message }, status: 422
     end
   end
 
@@ -38,6 +40,8 @@ class TodosController < ApplicationController
       render json: Todo.find(params[:id])
     rescue ActiveRecord::RecordNotFound => error
       render json: { error: error.message }, status: 404
+    rescue StandardError => error
+      render json: { error: error.message }, status: 422
     end
   end
 
