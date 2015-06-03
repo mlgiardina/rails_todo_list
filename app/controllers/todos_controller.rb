@@ -5,8 +5,12 @@ class TodosController < ApplicationController
   end
 
   def create
-    new_todo = Todo.create(body: "new todo")
-    render json: new_todo
+    if params[:body].present?
+      new_todo = Todo.create(body: params[:body])
+    else
+      new_todo = Todo.create(body: "new todo")
+    end
+      render json: new_todo
   end
 
   def show
