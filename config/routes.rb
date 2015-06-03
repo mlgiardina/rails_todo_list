@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     put '/todos/:id/', to: 'todos#update'
 
-    root 'students#index'
+    root 'todos#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
