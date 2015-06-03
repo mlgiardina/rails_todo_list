@@ -8,7 +8,7 @@ class TodosController < ApplicationController
     if params[:body].present?
       new_todo = Todo.create(body: params[:body])
     else
-      new_todo = Todo.create(body: "new todo")
+      new_todo = Todo.create(body: "")
     end
       render json: new_todo
   end
@@ -26,9 +26,7 @@ class TodosController < ApplicationController
   def destroy
     begin
       Todo.delete(params[:id])
-      render json: { message: 'todo deleted' }
-    rescue ActiveRecord::RecordNotFound => error
-      render json: { error: error.message }, status: 404
+      render json: { message: "todo deleted or didn't exist" }
     rescue StandardError => error
       render json: { error: error.message }, status: 422
     end
