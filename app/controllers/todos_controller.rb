@@ -24,20 +24,20 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    if Todo.exists?(params[:id])
+    begin
       Todo.delete(params[:id])
       render json: { message: 'todo deleted' }
-    else
-      render json: { error: 'Todo not found' }, status: 404
+    rescue ActiveRecord::RecordNotFound => error
+      render json: { error: error.message }, status: 404
     end
   end
 
   def update
-    if Todo.exists?(params[:id])
+    begin
       Todo.update(params[:id], completed: params[:completed])
       render json: Todo.find(params[:id])
-    else
-      render json: { error: 'Todo not found' }, status: 404
+    rescue ActiveRecord::RecordNotFound => error
+      render json: { error: error.message }, status: 404
     end
   end
 
