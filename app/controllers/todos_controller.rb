@@ -41,8 +41,18 @@ class TodosController < ApplicationController
 
   def destroy
     begin
+      all_todos = Todo.all
       Todo.delete(params[:id])
-      render json: { message: "todo deleted or didn't exist" }
+      respond_to do |format|
+        format.html do
+          render 'index.html.erb', locals: { todos: all_todos }
+        end
+        format.json do
+          render json: all_todos
+        end
+      end
+    rescue ActiveRecord::RecordNotFound => error
+      render json: { error: error.message }, status: 404
     rescue StandardError => error
       render json: { error: error.message }, status: 422
     end

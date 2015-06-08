@@ -6,3 +6,4 @@
                             <% end %>
 </p>
 <p><%=button_to "Mark as Completed", { action: "update", id: todo.id, completed: true }, :method => "put", data: { disable_with: 'Marking complete...'} %></p>
+<p><%=button_to "Delete This Todo", { action: "destroy", id: todo.id }, :method => "delete", data: { disable_with: 'Deleting Todo...'} %></p>
