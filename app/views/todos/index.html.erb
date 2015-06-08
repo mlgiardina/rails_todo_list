@@ -1,0 +1,8 @@
+<div class="body">
+  <h2>Todos</h2>
+  <% todos.each do |todo| %>
+    <ul>
+      <li><%= todo.id.to_s + ": " + todo.body +  " | " + todo.completed.to_s %></li>
+    </ul>
+  <% end %>
+</div>

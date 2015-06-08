@@ -4,7 +4,7 @@ class TodosController < ApplicationController
     all_todos = Todo.all
     respond_to do |format|
       format.html do
-        render 'todo.html.erb', locals: { todos: all_todos }
+        render 'index.html.erb', locals: { todos: all_todos }
       end
       format.json do
         render json: all_todos
