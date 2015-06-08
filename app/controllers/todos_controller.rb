@@ -1,7 +1,15 @@
 class TodosController < ApplicationController
 
   def index
-    render json: Todo.all
+    all_todos = Todo.all
+    respond_to do |format|
+      format.html do
+        render 'todo.html.erb', locals: { todos: all_todos }
+      end
+      format.json do
+        render json: all_todos
+      end
+    end
   end
 
   def create
