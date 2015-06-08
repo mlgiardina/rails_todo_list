@@ -1,8 +1,9 @@
 <div class="body">
-  <h2>Todos</h2>
+  <h2>Todos (<%=todos.count%>)</h2>
   <% todos.each do |todo| %>
     <ul>
       <li><%= todo.id.to_s + ": " + todo.body +  " | " + todo.completed.to_s %> <%= link_to "View This Todo", controller: "todos", action: "show", id: todo.id %> </li>
     </ul>
   <% end %>
+  <%=button_to "Add New Todo", action: "create" %>
 </div>

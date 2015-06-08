@@ -5,4 +5,4 @@
                               <%= "incomplete" %>
                             <% end %>
 </p>
-<p></p>
+<p><%=button_to "Mark as Completed", { action: "update", id: todo.id, completed: true }, :method => "put", data: { disable_with: 'Marking complete...'} %></p>
