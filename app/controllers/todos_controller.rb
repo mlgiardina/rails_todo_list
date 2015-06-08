@@ -22,8 +22,16 @@ class TodosController < ApplicationController
   end
 
   def show
+    todo = Todo.find(params[:id])
     begin
-      render json: Todo.find(params[:id])
+      respond_to do |format|
+        format.html do
+          render 'show.html.erb', locals: { single_todo: todo }
+        end
+        format.json do
+          render json: todo
+        end
+      end
     rescue ActiveRecord::RecordNotFound => error
       render json: { error: error.message }, status: 404
     rescue StandardError => error
