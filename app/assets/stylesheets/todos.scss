@@ -1,6 +1,8 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$main-text: white;
+
 .body {
 
   ol {
@@ -45,7 +47,7 @@ margin: 10px 10px 0 10px;
 
 .main {
   background: #042029;
-  color: white;
+  color: $main-text;
   font-size: 20px;
   margin: 0 auto;
 
@@ -59,7 +61,7 @@ nav {
   margin: 0 auto;
   background: gray;
   text-align: center;
-  color: #042029;
+  color: $main-text;
   padding: 5px;
   box-sizing: border-box;
 }
@@ -96,7 +98,7 @@ footer {
   padding-top: 10px;
 
   p {
-    color: #042029;
+    color: $main-text;
     margin: 0 auto;
     text-align: center;
     font-size: 20px;
@@ -107,6 +109,6 @@ footer {
 .search {
   height: 20px;
   width: 100px;
-  background: white;
+  background: $main-text;
   margin: 0 auto;
 }
