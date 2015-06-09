@@ -1,9 +1,15 @@
 <div class="body">
   <h2>Todos (<%=todos.count%>)</h2>
-  <% todos.each do |todo| %>
-    <ul>
-      <li><%= todo.id.to_s + ": " + todo.body +  " | " + todo.completed.to_s %> <%= link_to "View This Todo", controller: "todos", action: "show", id: todo.id %> </li>
-    </ul>
-  <% end %>
-  <%=button_to "Add New Todo", action: "create" %>
+  <ol>
+    <% todos.each do |todo| %>
+      <li><%= todo.body +  " | " + todo.change_from_boolean %> <%= link_to "View This Todo", controller: "todos", action: "show", id: todo.id %></li>
+    <% end %>
+  </ol>
+  <div class="add_todo">
+    <form action="/create" method="POST">
+      <label class="todo_label">Add a todo!</label>
+      <input type="string" name="body">
+      <input type="submit">
+    </form>
+  </div>
 </div>

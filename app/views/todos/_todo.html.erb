@@ -1,9 +1,10 @@
-<p class = "body">Todo: <%= todo.body %> </p>
+<p class = "label">Todo: <%= todo.body %> </p>
 <p class = "status">Status: <% if todo.completed == true %>
                               <%= "complete" %>
                             <% else %>
                               <%= "incomplete" %>
                             <% end %>
 </p>
-<p><%=button_to "Mark as Completed", { action: "update", id: todo.id, completed: true }, :method => "put", data: { disable_with: 'Marking complete...'} %></p>
-<p><%=button_to "Delete This Todo", { action: "destroy", id: todo.id }, :method => "delete", data: { disable_with: 'Deleting Todo...'} %></p>
+<p class = "delete_todo"><%=button_to "Delete This Todo", { action: "destroy", id: todo.id }, :method => "delete"%></p>
+<p class = "complete_todo"><%=button_to "Mark as Completed", { action: "update", id: todo.id, completed: true }, :method => "put", data: { disable_with: 'Marking complete...'} %></p>
+

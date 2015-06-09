@@ -12,13 +12,19 @@ class TodosController < ApplicationController
     end
   end
 
+
+
   def create
-    if params[:body].present?
-      new_todo = Todo.create(body: params[:body])
-    else
-      new_todo = Todo.create(body: "")
+    all_todos = Todo.all
+    Todo.create(body: params[:body])
+    respond_to do |format|
+      format.html do
+        render 'index.html.erb', locals: { todos: all_todos }
+      end
+      format.json do
+        render json: all_todos
+      end
     end
-      render json: new_todo
   end
 
   def show

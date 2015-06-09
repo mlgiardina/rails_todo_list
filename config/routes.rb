@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     get '/todos/', to: 'todos#index'
 
-    post '/todos/new', to: 'todos#create'
+    post '/create', to: 'todos#create'
 
     delete '/todos/:id/', to: 'todos#destroy'
 
