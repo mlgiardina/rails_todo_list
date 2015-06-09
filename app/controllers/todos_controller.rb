@@ -12,8 +12,6 @@ class TodosController < ApplicationController
     end
   end
 
-
-
   def create
     all_todos = Todo.all
     Todo.create(body: params[:body])
@@ -66,7 +64,6 @@ class TodosController < ApplicationController
 
   def update
     begin
-      todo =
       Todo.update(params[:id], completed: params[:completed])
       respond_to do |format|
         format.html do
