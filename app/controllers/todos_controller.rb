@@ -64,7 +64,8 @@ class TodosController < ApplicationController
 
   def update
     begin
-      Todo.update(params[:id], completed: params[:completed])
+      todo = Todo.find(params[:id])
+      todo.update(completed: params[:completed])
       respond_to do |format|
         format.html do
           render 'show.html.erb', locals: { single_todo: todo }
