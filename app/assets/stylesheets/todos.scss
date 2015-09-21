@@ -1,7 +1,7 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$main-text: white;
+$main-text: #279186;
 
 .body {
 
@@ -10,7 +10,7 @@ $main-text: white;
 
     a {
       text-decoration: none;
-      color:#839496;
+      color:#859900;
     }
 
     a:hover {
@@ -59,7 +59,7 @@ margin: 10px 10px 0 10px;
 nav {
   font-family: sans-serif;
   margin: 0 auto;
-  background: gray;
+  background: #042029;
   text-align: center;
   color: $main-text;
   padding: 5px;
@@ -82,7 +82,7 @@ nav a {
     font-size: 20px;
     padding-left: 15px;
     text-decoration: none;
-    color: #042029;
+    color: #859900;
 }
 
 
@@ -91,7 +91,7 @@ nav a:hover {
 }
 
 footer {
-  background: gray;
+  background: #042029;
   height: 50px;
   margin: 0 auto;
   box-sizing: border-box;
